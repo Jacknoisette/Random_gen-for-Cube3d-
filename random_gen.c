@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   random_gen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 10:47:27 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/04 15:44:30 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/04/07 08:04:17 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,7 @@ int	random_map_generator_space(t_rand *random)
 				distance = random->size - 1 - i;
 			if (random->size - 1 - j < distance)
 				distance = random->size - 1 - j;
-			percent = (30 + ft_rand(random, -10, 10)) * (1.0 - ((float)distance / median));
+			percent = (20 + ft_rand(random, -10, 10)) * (1.0 - ((float)distance / median));
 			if (ft_rand_percent(random, percent) == true)
 				random->map[i][j] = ' ';
 			j++;
@@ -178,7 +178,7 @@ int	random_map_generator_wall(t_rand *random)
 					k++;
 				}
 			}
-			wall = 10 * wall;
+			wall = 5 * wall;
 			if (wall > 60)
 				wall = 60;
 			percent += wall;
@@ -213,9 +213,7 @@ int	map_generator_wall(t_rand *random)
 	int	j;
 	int	k;
 	int	l;
-	int	percent;
 
-	percent = 0;
 	i = 0;
 	while (i < random->size)
 	{
